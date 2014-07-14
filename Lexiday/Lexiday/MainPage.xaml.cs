@@ -48,14 +48,14 @@ namespace Lexiday
         private void MainLongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // If selected item is null (no selection) do nothing
-            if (MainLongListSelector.SelectedItem == null)
-                return;
+            //if (MainLongListSelector.SelectedItem == null)
+            //    return;
 
-            // Navigate to the new page
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ItemViewModel).ID, UriKind.Relative));
+            //// Navigate to the new page
+            //NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ItemViewModel).ID, UriKind.Relative));
 
-            // Reset selected item to null (no selection)
-            MainLongListSelector.SelectedItem = null;
+            //// Reset selected item to null (no selection)
+            //MainLongListSelector.SelectedItem = null;
         }
 
         // Sample code for building a localized ApplicationBar

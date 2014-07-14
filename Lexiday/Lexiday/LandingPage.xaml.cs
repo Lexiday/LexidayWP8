@@ -30,10 +30,6 @@ namespace Lexiday
             {
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
             }
-            else
-            {
-                
-            }
         }
 
         private async void loginButton_Click(object sender, RoutedEventArgs e)
@@ -43,7 +39,7 @@ namespace Lexiday
                 await ParseUser.LogInAsync(userNameBox.Text, passwordBox.Password);
                 NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
             }
-            catch (Exception exe)
+            catch (Exception exec)
             {
                 MessageBox.Show("Login failed");
                 // The login failed. Check the error to see why.
@@ -61,8 +57,6 @@ namespace Lexiday
                     Email = userNameBox.Text
                 };
 
-                // other fields can be set just like with ParseObject
-
 
                 await user.SignUpAsync();
                 MessageBox.Show("Sign Up was Successful");
@@ -71,6 +65,26 @@ namespace Lexiday
             {
                 MessageBox.Show("Sign Up Failed");
             }
+        }
+
+        //If the user presses enter, then set the focus to the password box
+        private void userNameBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                passwordBox.Focus();
+            }
+        }
+
+        //If the user clicks the enter button, sign the user in.
+        private void passwordBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                this.Focus();
+                loginButton_Click(sender, e);
+            }
+
         }
     }
 }
